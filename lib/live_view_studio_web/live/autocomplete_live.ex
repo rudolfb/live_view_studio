@@ -112,7 +112,7 @@ defmodule LiveViewStudioWeb.AutocompleteLive do
   end
 
   def handle_event("city-search", %{"city" => city}, socket) do
-    send(self, {:run_city_search, city})
+    send(self(), {:run_city_search, city})
 
     socket =
       socket

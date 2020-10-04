@@ -1,5 +1,6 @@
 defmodule LiveViewStudioWeb.LicenseLive do
   use LiveViewStudioWeb, :live_view
+  use Timex
 
   alias LiveViewStudio.Licenses
   import Number.Currency
@@ -49,5 +50,9 @@ defmodule LiveViewStudioWeb.LicenseLive do
       )
 
     {:noreply, socket}
+  end
+
+  defp format_time(time) do
+    Timex.format!(time, "%b %d at %H:%M", :strftime)
   end
 end
